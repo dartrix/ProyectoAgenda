@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_columnWeight="1"
+    android:layout_rowWeight="1"
+    android:layout_height="100dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/imagenMateria"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:tint="@color/libro1"
+        android:src="@drawable/libro_icono"/>
+
+    <TextView
+        android:id="@+id/nombreMateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:textAlignment="center"
+        android:text="prueba"/>
+</FrameLayout>

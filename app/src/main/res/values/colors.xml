@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#5c21d1</color>
+    <color name="colorBlue">#70b1c3</color>
+    <color name="colorPrimaryDark">#213ed1</color>
+    <color name="colorAccent">#fff</color>
+    <color name="colorRed">#ff1654</color>
+    <color name="colorSecundary">#b2dbbf</color>
+    <color name="colorLight">#fdfff9</color>
+
+    <color name="libro1">#1e90ff</color>
+    <color name="libro2">#cc0000</color>
+    <color name="libro3">#663399</color>
+    <color name="libro4">#008000</color>
+    <color name="libro5">#ffc000</color>
+    <color name="libro6">#ff8c00</color>
+    <color name="libro7">#ff69b4</color>
+    <color name="libro8">#808080</color>
+    <color name="libro9">#1a1a1a</color>
 </resources>
