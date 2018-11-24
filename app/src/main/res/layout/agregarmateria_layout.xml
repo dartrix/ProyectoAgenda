@@ -106,14 +106,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <EditText
+                        android:id="@+id/editfecha"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:onClick="selfecha"
+                        android:clickable="true"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#dadada"/>
                     <EditText
+                        android:id="@+id/edithora"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
+                        android:inputType="time"
+                        android:focusable="false"
+                        android:onClick="selhora"
+                        android:clickable="true"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#dadada"/>
                 </LinearLayout>
@@ -140,6 +151,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
