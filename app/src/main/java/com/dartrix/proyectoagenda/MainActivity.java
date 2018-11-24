@@ -34,4 +34,5 @@ public class MainActivity extends Activity {
         super.onPause();
         finish();
     }
+
 }
