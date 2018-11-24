@@ -116,6 +116,7 @@
                         android:onClick="selfecha"
                         android:clickable="true"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/colorLight"
                         android:backgroundTint="#dadada"/>
                     <EditText
                         android:id="@+id/edithora"
@@ -125,6 +126,7 @@
                         android:focusable="false"
                         android:onClick="selhora"
                         android:clickable="true"
+                        android:textColor="@color/colorLight"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#dadada"/>
                 </LinearLayout>

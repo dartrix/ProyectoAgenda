@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_todo"
+            android:icon="@drawable/libro_icono"
+            android:title="todo" />
+        <item
+            android:id="@+id/nav_tarea"
+            android:icon="@drawable/libro_icono"
+            android:title="tarea" />
+        <item
+            android:id="@+id/nav_expo"
+            android:icon="@drawable/libro_icono"
+            android:title="Exposiciones" />
+        <item
+            android:id="@+id/nav_proy"
+            android:icon="@drawable/libro_icono"
+            android:title="Proyectos" />
+        <item
+            android:id="@+id/nav_exam"
+            android:icon="@drawable/libro_icono"
+            android:title="Examenes" />
+    </group>
+</menu>

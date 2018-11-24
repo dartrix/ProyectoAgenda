@@ -15,6 +15,8 @@ public class MenuActivity extends AppCompatActivity {
 
     public void agregarMateria(View v){
         Intent i = new Intent(this, AgregarMateriaActivity.class);
+        //eto eh pa proba lo de asignacione mientra no tenemos boton para que aparezca :v
+        //Intent i = new Intent(this, asignacionesActivity.class);
         startActivity(i);
     }
 
