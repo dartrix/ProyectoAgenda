@@ -33,6 +33,7 @@ public class MenuActivity extends AppCompatActivity {
 
         mostrarMaterias();
 
+
     }
 
     @Override
@@ -136,6 +137,10 @@ public class MenuActivity extends AppCompatActivity {
     public void mostarAsignaciones(View v){
         Intent i = new Intent(this, asignacionesActivity.class);
         startActivity(i);
+    }
+    public void notify (View v){
+        Intent M = new Intent(v.getContext(), Notificacion.class);
+        startActivity(M);
     }
 
 }

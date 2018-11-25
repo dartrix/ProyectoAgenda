@@ -26,10 +26,7 @@ public class AgregarMateriaActivity extends Activity {
 
 
     }
-    public void notify (View v){
-        Intent M = new Intent(v.getContext(), Notificacion.class);
-        startActivity(M);
-    }
+
 
     public void guardarMateria(View v){
         nombre = (EditText)findViewById(R.id.nombre);

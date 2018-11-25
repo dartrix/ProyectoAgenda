@@ -3,8 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundgradient1">
+    <FrameLayout
+        android:padding="10dp"
+        android:id="@+id/frame"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/backgroundgradient1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="15dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Añade tus Materias"
+                android:textColor="#fff"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Es importante que coloques el nombre de tu maestro."
+                android:textColor="#fff"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/lnn"
+        android:layout_below="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -113,16 +148,6 @@
                 android:background="@drawable/botonredondeado"
                 android:text="Registrar"
                 android:onClick="guardarMateria"/>
-
-            <Button
-                android:layout_below="@id/buttonPrincipal"
-                android:id="@+id/buttonnotificar"
-                android:layout_margin="5dp"
-                android:onClick="notify"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/botonredondeado"
-                android:text="Aceptar Notificaciones" />
         </RelativeLayout>
 
     </LinearLayout>
