@@ -3,7 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,11 +19,12 @@
                     android:gravity="center"
                     android:layout_weight="1">
                     <TextView
+                        android:id="@+id/hora"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textAlignment="center"
-                        android:text="11:00pm"/>
+                        android:text="11:00pm 22/11/2018"/>
                 </RelativeLayout>
 
             <RelativeLayout
@@ -29,6 +33,7 @@
                 android:gravity="center"
                 android:layout_weight=".6">
                 <TextView
+                    android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -45,6 +50,7 @@
                 android:padding="5dp"
                 android:layout_weight="1">
                 <Button
+                    android:id="@+id/detalles"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:text="Detalles"

@@ -1,17 +1,23 @@
 package com.dartrix.proyectoagenda;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MostrarMateriaActivity extends Activity {
 
@@ -37,12 +43,72 @@ public class MostrarMateriaActivity extends Activity {
 
             llenarDatos(mat);
 
+            ArrayList<Asignacion> as = sql.TraerDatosAsignacionMateria(idinfo);
+
+            for(int i=0; i < as.size(); i++){
+                agregarAsigLy(as.get(i));
+            }
+
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setContentView(R.layout.vermateria_layout);
+
+        DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
+
+
+            Materia mat = sql.traerMateria(idinfo);
+
+            llenarDatos(mat);
+
+            ArrayList<Asignacion> as = sql.TraerDatosAsignacionMateria(idinfo);
+
+            for(int i=0; i < as.size(); i++){
+                agregarAsigLy(as.get(i));
+            }
+
+
+    }
+
     public void agregarAsig(View v){
         Intent i = new Intent(this, AgregarAsignacionActivity.class);
         i.putExtra("id",idinfo);
         startActivity(i);
+    }
+
+    public void agregarAsigLy(final Asignacion s){
+        LinearLayout ly = (LinearLayout)findViewById(R.id.lnrlyt);
+        LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View v = vi.inflate(R.layout.asig_item_layout, null);
+        TextView horafecha = (TextView)v.findViewById(R.id.hora);
+        TextView titulo = (TextView)v.findViewById(R.id.titulo);
+
+        titulo.setText(s.getNombre());
+        horafecha.setText(s.getFechalimite());
+
+        titulo.setTextColor(Color.rgb(255,255,255));
+        horafecha.setTextColor(Color.rgb(255,255,255));
+
+        ly.addView(v);
+        v.findViewById(R.id.detalles).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent e) {
+
+                switch(e.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        Intent i = new Intent(v.getContext(), MostrarAsignacionActivity.class);
+                        i.putExtra("id",s.getId());
+                        startActivity(i);
+                        break;
+                }
+                return true;
+            }
+        });
+
     }
 
     public void llenarDatos(Materia mat){
