@@ -33,7 +33,7 @@ public class Notificacion extends Activity {
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
-                Toast.makeText(getApplicationContext(), "Agendarium: Notificacion programada a las 4:14 a.m ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Agendarium: Consejos activados ", Toast.LENGTH_SHORT).show();
             }
         });
 

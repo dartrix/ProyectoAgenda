@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/backgroundgradient1"
+    android:background="@drawable/backgroundgradient4"
     android:layout_height="match_parent">
 
     <ImageView
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/botonredondeado"
-        android:text="Activar Notificaciones Diarias" />
+        android:background="@drawable/backgroundgradient4"
+        android:text="Activar consejos Diarios" />
 
 </RelativeLayout>

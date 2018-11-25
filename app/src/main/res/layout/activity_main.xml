@@ -114,15 +114,17 @@
     </ScrollView>
 
     <ImageView
-        android:layout_width="39dp"
-        android:layout_height="37dp"
-        android:clickable="true"
         android:id="@+id/buttonnotificar"
-        android:onClick="notify"
+        android:layout_width="40dp"
+        android:layout_height="38dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="157dp"
-        android:background="@drawable/botonredondeado"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:clickable="true"
+        android:onClick="notify"
         android:src="@drawable/ic_add_black_24dp" />
 
 </RelativeLayout>

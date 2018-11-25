@@ -20,7 +20,7 @@ public class Notification_reciever extends BroadcastReceiver {
         String[] consejos = {"Desarrolla tu creatividad con herramientas de estudio online", "Establece metas de estudio y crea un calendario de estudio flexible", "No tengas miedo de preguntar","Plantéate preguntas constantemente"};
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent repeating_intent = new Intent(context, Repeating_activity.class);
+        Intent repeating_intent = new Intent(context, MenuActivity.class);
         repeating_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //objeto ramdom para activar el array
 
