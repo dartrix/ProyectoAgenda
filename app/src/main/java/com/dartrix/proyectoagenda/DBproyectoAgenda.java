@@ -81,10 +81,42 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         db.close();
         return arreglosSelect;
     }
-
-    public ArrayList<Asignacion> TraerDatosAsignacion(String tipo) {
+    public ArrayList<Asignacion> TraerDatosAsignacion(boolean estado) {
+        String es;
+        if (estado){
+            es = "completo";
+        }
+        else{
+            es = "incompleto";
+        }
         ArrayList<Asignacion> arreglosSelect = new ArrayList<>();
-        String selectQuery = "SELECT * FROM Asignacion where tipo = '"+tipo+"'";
+        String selectQuery = "SELECT * FROM Asignacion where estados = '"+es+"'";
+        Log.d(TAG, selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        Asignacion datos = new Asignacion();
+
+        while(c.moveToNext()){
+            datos = new Asignacion(Integer.toString(c.getInt(0)), c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8));
+
+            arreglosSelect.add(datos);
+        }
+        c.close();
+        db.close();
+        return arreglosSelect;
+    }
+
+    public ArrayList<Asignacion> TraerDatosAsignacion(String tipo, boolean estado) {
+        String es;
+        if (estado){
+            es = "completo";
+        }
+        else{
+            es = "incompleto";
+        }
+        ArrayList<Asignacion> arreglosSelect = new ArrayList<>();
+        String selectQuery = "SELECT * FROM Asignacion where tipo = '"+tipo+"' and estados = '"+es+"'";
         Log.d(TAG, selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);

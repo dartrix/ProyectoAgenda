@@ -95,7 +95,7 @@ public class asignacionesActivity extends AppCompatActivity {
 
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        mostrarTipoAsig(sql.TraerDatosAsignacion());
+        mostrarTipoAsig(sql.TraerDatosAsignacion(false));
 
         cambiarVista(R.id.nav_todo);
 
@@ -132,22 +132,22 @@ public class asignacionesActivity extends AppCompatActivity {
 
             case R.id.nav_tarea:
                 s.setText("Tareas");
-                mostrarTipoAsig(sql.TraerDatosAsignacion("Tarea"));
+                mostrarTipoAsig(sql.TraerDatosAsignacion("Tarea",false));
                 break;
 
             case R.id.nav_expo:
                 s.setText("Exposiciones");
-                mostrarTipoAsig(sql.TraerDatosAsignacion("Exposicion"));
+                mostrarTipoAsig(sql.TraerDatosAsignacion("Exposicion",false));
                 break;
 
             case R.id.nav_proy:
                 s.setText("Proyectos");
-                mostrarTipoAsig(sql.TraerDatosAsignacion("Proyecto"));
+                mostrarTipoAsig(sql.TraerDatosAsignacion("Proyecto",false));
                 break;
 
             case R.id.nav_exam:
                 s.setText("Examenes");
-                mostrarTipoAsig(sql.TraerDatosAsignacion("Examen"));
+                mostrarTipoAsig(sql.TraerDatosAsignacion("Examen",false));
 
                 break;
         }
