@@ -9,24 +9,31 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.Random;
+
 
 public class Notification_reciever extends BroadcastReceiver {
+
+
     @Override
     public void onReceive(Context context, Intent intent) {
-
+        String[] consejos = {"Desarrolla tu creatividad con herramientas de estudio online", "Establece metas de estudio y crea un calendario de estudio flexible", "No tengas miedo de preguntar","Plantéate preguntas constantemente"};
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent repeating_intent = new Intent(context, Repeating_activity.class);
         repeating_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //objeto ramdom para activar el array
+
+        int random = (int) Math.round(Math.random()* 3 ) ;
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100, repeating_intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle("Agentarium")
-                .setContentText("Frase: Si te caes siete veces, levántate ocho.")
-                .setVibrate(new long[] { 1000, 500, 1000, 500, 1000 })
+                .setContentTitle("Consejos Agendarium")
+                .setContentText(""+consejos[random])
+                .setVibrate(new long[] { 1000, 700, 1000, 500, 1000 })
                 .setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+ "://" +context.getPackageName()+"/"+R.raw.not))
                 .setAutoCancel(true);
 
@@ -35,4 +42,7 @@ public class Notification_reciever extends BroadcastReceiver {
                 notificationManager.notify(100,builder.build());
 
     }
+
+
+
 }

@@ -18,6 +18,7 @@
             android:orientation="vertical">
 
             <FrameLayout
+                android:id="@+id/frame"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -29,19 +30,23 @@
                     android:orientation="vertical"
                     android:layout_gravity="center"
                     android:padding="15dp">
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Superate."
+                        android:text="¿Deseas consejos diarios?"
                         android:textStyle="bold"
                         android:textColor="#fff"
                         android:textSize="35dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cree en ti mismo y en lo que eres"
+                        android:text="Aqui podras activar consejos diariamente para que te mantengas motivado."
                         android:textColor="#fff"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp" />
+
                 </LinearLayout>
             </FrameLayout>
 
@@ -51,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/backgroundgradient5"
                 android:onClick="mostarAsignaciones">
+
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -107,6 +113,16 @@
 
     </ScrollView>
 
-
+    <ImageView
+        android:layout_width="39dp"
+        android:layout_height="37dp"
+        android:clickable="true"
+        android:id="@+id/buttonnotificar"
+        android:onClick="notify"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="157dp"
+        android:background="@drawable/botonredondeado"
+        android:src="@drawable/ic_add_black_24dp" />
 
 </RelativeLayout>
