@@ -3,6 +3,7 @@ package com.dartrix.proyectoagenda;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -25,6 +26,11 @@ public class AgregarMateriaActivity extends Activity {
         ehora=(EditText)findViewById(R.id.edithora);
 
 
+    }
+
+    public void notify (View v){
+        Intent M = new Intent(v.getContext(), Notificacion.class);
+        startActivity(M);
     }
 
     public void selfecha(View v){

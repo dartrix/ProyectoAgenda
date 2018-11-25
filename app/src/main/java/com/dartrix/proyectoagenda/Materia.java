@@ -8,17 +8,29 @@ public class Materia {
     private String descripcionMateria;
     private String creditoMateria;
     private String profMateria;
+    private String acumulado;
 
     public Materia (){
 
     }
     //Constructor de la clase materia
-    public Materia(String id, String nombreMateria,  String descripcionMateria, String creditoMateria, String profMateria) {
+    public Materia(String id, String nombreMateria, String descripcionMateria, String creditoMateria, String profMateria, String acumulado) {
         this.id = id;
         this.nombreMateria = nombreMateria;
         this.descripcionMateria = descripcionMateria;
         this.creditoMateria = creditoMateria;
         this.profMateria = profMateria;
+        this.acumulado = acumulado;
+    }
+
+
+
+    public String getAcumulado() {
+        return acumulado;
+    }
+
+    public void setAcumulado(String acumulado) {
+        this.acumulado = acumulado;
     }
 
     //Getters & Setters de la materia

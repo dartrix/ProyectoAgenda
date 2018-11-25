@@ -157,10 +157,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
+                android:id="@+id/buttonPrincipal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botonredondeado"
                 android:text="Registrar"/>
+
+            <Button
+                android:layout_below="@id/buttonPrincipal"
+                android:id="@+id/buttonnotificar"
+                android:layout_margin="5dp"
+                android:onClick="notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botonredondeado"
+                android:text="Aceptar Notificaciones" />
         </RelativeLayout>
 
     </LinearLayout>
