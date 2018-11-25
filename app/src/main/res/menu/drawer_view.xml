@@ -3,23 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_todo"
-            android:icon="@drawable/libro_icono"
-            android:title="todo" />
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Todo" />
         <item
             android:id="@+id/nav_tarea"
             android:icon="@drawable/libro_icono"
-            android:title="tarea" />
+            android:title="Tareas" />
         <item
             android:id="@+id/nav_expo"
-            android:icon="@drawable/libro_icono"
+            android:icon="@drawable/ic_person_black_24dp"
             android:title="Exposiciones" />
         <item
             android:id="@+id/nav_proy"
-            android:icon="@drawable/libro_icono"
+            android:icon="@drawable/ic_computer_black_24dp"
             android:title="Proyectos" />
         <item
             android:id="@+id/nav_exam"
-            android:icon="@drawable/libro_icono"
+            android:icon="@drawable/ic_subject_black_24dp"
             android:title="Examenes" />
     </group>
 </menu>

@@ -14,7 +14,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     public static String TAG = "tag";
 
     //Tabla Materia
-    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text,  descripcionMateria text, creditoMateria text, profMateria text )";
+    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text,  descripcionMateria text, creditoMateria text, profMateria text, color int )";
 
     //Tabla Asignacion
     String consulaDos = "Create Table Asignacion (id integer primary key autoincrement, materiaFK integer, nombre text, descripcion text, calificacion text, fechalimite text, horalimite text, tipo text, estados text)";
@@ -52,7 +52,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         Materia datos = new Materia();
 
         while(c.moveToNext()){
-            datos = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4));
+            datos = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5));
 
             arreglosSelect.add(datos);
         }
@@ -81,16 +81,32 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         return arreglosSelect;
     }
 
+    //Read
+    public Materia traerMateria(String id){
+        Materia m = new Materia();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("Select * from Materia where id = "+id+" Limit 1",null);
+
+        while(c.moveToNext())   {
+            m = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5));
+        }
+
+        c.close();
+        db.close();
+
+        return m;
+    }
+
 
 
     //INSERT de Materia
-    public  void insertarMateria(String nombreMateria, String creditoMateria,String profMateria,String descripcionMateria){
+    public  void insertarMateria(String nombreMateria, String creditoMateria,String profMateria,String descripcionMateria, int color){
 
         SQLiteDatabase db = getWritableDatabase();
 
         if (db != null){
 
-            String query = "insert into Materia (nombreMateria,creditoMateria,profMateria,descripcionMateria) values ('"+nombreMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"')";
+            String query = "insert into Materia (nombreMateria,creditoMateria,profMateria,descripcionMateria,color) values ('"+nombreMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"','"+color+"')";
             db.execSQL(query);
 
         } db.close();

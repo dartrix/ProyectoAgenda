@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".MenuActivity"></activity>
         <activity android:name=".AgregarMateriaActivity"></activity>
+        <activity android:name=".MostrarMateriaActivity"></activity>
+        <activity android:name=".AgregarAsignacionActivity"></activity>
 
         <activity android:name=".asignacionesActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >

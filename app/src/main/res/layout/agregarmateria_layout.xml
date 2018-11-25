@@ -41,12 +41,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <EditText
+                        android:id="@+id/nombre"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorLight"
                         android:backgroundTint="#dadada"/>
                     <EditText
+                        android:id="@+id/credito"
                         android:layout_width="match_parent"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -69,6 +71,7 @@
                 android:text="Profesor"/>
 
             <EditText
+                android:id="@+id/prof"
                 android:textColor="@color/colorLight"
                 android:layout_below="@+id/prftxt"
                 android:layout_width="match_parent"
@@ -77,61 +80,7 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLight"
-                        android:text="Fecha"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLight"
-                        android:text="Hora"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/editfecha"
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:inputType="date"
-                        android:focusable="false"
-                        android:onClick="selfecha"
-                        android:clickable="true"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLight"
-                        android:backgroundTint="#dadada"/>
-                    <EditText
-                        android:id="@+id/edithora"
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:inputType="time"
-                        android:focusable="false"
-                        android:onClick="selhora"
-                        android:clickable="true"
-                        android:textColor="@color/colorLight"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#dadada"/>
-                </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -144,6 +93,7 @@
                 android:textColor="@color/colorLight"
                 android:text="Descripción"/>
             <EditText
+                android:id="@+id/descripcion"
                 android:layout_below="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,7 +110,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botonredondeado"
-                android:text="Registrar"/>
+                android:text="Registrar"
+                android:onClick="guardarMateria"/>
         </RelativeLayout>
 
     </LinearLayout>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/framelayout"
+    android:layout_width="wrap_content"
     android:layout_columnWeight="1"
     android:layout_rowWeight="1"
-    android:layout_height="100dp"
-    android:padding="5dp">
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/imagenMateria"
@@ -15,9 +19,10 @@
 
     <TextView
         android:id="@+id/nombreMateria"
-        android:layout_width="match_parent"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:textAlignment="center"
+        android:layout_below="@id/imagenMateria"
         android:text="prueba"/>
-</FrameLayout>
+</RelativeLayout>
+

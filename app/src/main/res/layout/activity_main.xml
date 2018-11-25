@@ -80,6 +80,7 @@
                 android:columnCount="3">
 
                 <FrameLayout
+                    android:id="@+id/agregar"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_height="100dp"
@@ -99,7 +100,6 @@
                         android:textAlignment="center"
                         android:text="Agregar"/>
                 </FrameLayout>
-
 
 
             </GridLayout>

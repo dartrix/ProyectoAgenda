@@ -9,16 +9,21 @@ public class Materia {
     private String creditoMateria;
     private String profMateria;
 
+
+
+    private int color;
+
     public Materia (){
 
     }
     //Constructor de la clase materia
-    public Materia(String id, String nombreMateria,  String descripcionMateria, String creditoMateria, String profMateria) {
+    public Materia(String id, String nombreMateria,  String descripcionMateria, String creditoMateria, String profMateria, int color) {
         this.id = id;
         this.nombreMateria = nombreMateria;
         this.descripcionMateria = descripcionMateria;
         this.creditoMateria = creditoMateria;
         this.profMateria = profMateria;
+        this.color=color;
     }
 
     //Getters & Setters de la materia
@@ -60,6 +65,14 @@ public class Materia {
 
     public void setProfMateria(String profMateria) {
         this.profMateria = profMateria;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
 }
