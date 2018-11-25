@@ -14,7 +14,8 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     public static String TAG = "tag";
 
     //Tabla Materia
-    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text,  descripcionMateria text, creditoMateria text, profMateria text, color int )";
+
+    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text,  descripcionMateria text, creditoMateria text, profMateria text, color int, acumulado text)";
 
     //Tabla Asignacion
     String consulaDos = "Create Table Asignacion (id integer primary key autoincrement, materiaFK integer, nombre text, descripcion text, calificacion text, fechalimite text, horalimite text, tipo text, estados text)";
@@ -52,8 +53,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         Materia datos = new Materia();
 
         while(c.moveToNext()){
-            datos = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5));
-
+            datos = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5), c.getString(6));
             arreglosSelect.add(datos);
         }
         c.close();
@@ -88,7 +88,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("Select * from Materia where id = "+id+" Limit 1",null);
 
         while(c.moveToNext())   {
-            m = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5));
+            m = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4), c.getInt(5), c.getString(6));
         }
 
         c.close();
@@ -100,13 +100,14 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
 
 
     //INSERT de Materia
-    public  void insertarMateria(String nombreMateria, String creditoMateria,String profMateria,String descripcionMateria, int color){
+
+    public  void insertarMateria(String nombreMateria, String creditoMateria,String profMateria,String descripcionMateria, int color, String acumulado){
 
         SQLiteDatabase db = getWritableDatabase();
 
         if (db != null){
 
-            String query = "insert into Materia (nombreMateria,creditoMateria,profMateria,descripcionMateria,color) values ('"+nombreMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"','"+color+"')";
+            String query = "insert into Materia (nombreMateria,creditoMateria,profMateria,descripcionMateria,color,acumulado) values ('"+nombreMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"','"+color+"','"+acumulado+"')";
             db.execSQL(query);
 
         } db.close();
@@ -126,11 +127,11 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     }
 
     //UPDATE de Materia
-    public  void editarMateria(String id, String nombreMateria,String creditoMateria,String profMateria,String descripcionMateria){
+    public  void editarMateria(String id, String nombreMateria,String creditoMateria,String profMateria,String descripcionMateria, String acumulado){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
-            String query = "UPDATE Materia SET nombreMateria='"+nombreMateria+"',creditoMateria='"+creditoMateria+"',profMateria='"+profMateria+"' ,descripcionMateria='"+descripcionMateria+"' WHERE id='"+id+"' ";
+            String query = "UPDATE Materia SET nombreMateria='"+nombreMateria+"',creditoMateria='"+creditoMateria+"',profMateria='"+profMateria+"' ,descripcionMateria='"+descripcionMateria+"',acumulado='"+acumulado+"' WHERE id='"+id+"' ";
             db.execSQL(query);
 
         }db.close();

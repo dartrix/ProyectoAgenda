@@ -2,6 +2,7 @@ package com.dartrix.proyectoagenda;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -91,7 +92,19 @@ public class MostrarMateriaActivity extends Activity {
 
         libro.setColorFilter(ResourcesCompat.getColor(getResources(), color,null));
 
-        acumulado.setText("");
+        acumulado.setText(mat.getAcumulado());
+
+        int ac = Integer.parseInt(mat.getAcumulado());
+
+        if (ac < 70){
+            acumulado.setTextColor(Color.rgb(255,0,0));
+        }
+        if (ac >70 && ac < 80){
+            acumulado.setTextColor(Color.rgb(255, 165, 0));
+        }
+        if (ac > 80){
+            acumulado.setTextColor(Color.rgb(0,255,0));
+        }
 
     }
 }

@@ -3,6 +3,7 @@ package com.dartrix.proyectoagenda;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -25,6 +26,10 @@ public class AgregarMateriaActivity extends Activity {
 
 
     }
+    public void notify (View v){
+        Intent M = new Intent(v.getContext(), Notificacion.class);
+        startActivity(M);
+    }
 
     public void guardarMateria(View v){
         nombre = (EditText)findViewById(R.id.nombre);
@@ -41,7 +46,7 @@ public class AgregarMateriaActivity extends Activity {
         if (!nombre.getText().toString().equals("") || !credito.getText().toString().equals("") || !prof.getText().toString().equals("") || !desc.getText().toString().equals("") ){
             DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
 
-            sql.insertarMateria(nombre.getText().toString() ,credito.getText().toString() ,prof.getText().toString() ,desc.getText().toString(), color);
+            sql.insertarMateria(nombre.getText().toString() ,credito.getText().toString() ,prof.getText().toString() ,desc.getText().toString(), color, "0");
 
             nombre.setText("");
             credito.setText("");
