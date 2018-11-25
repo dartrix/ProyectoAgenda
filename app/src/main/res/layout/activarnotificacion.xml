@@ -5,13 +5,22 @@
     android:background="@drawable/backgroundgradient1"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonnotificar"
-        android:layout_width="369dp"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="291dp"
+        android:layout_marginTop="168dp"
+        android:src="@drawable/logoapp" />
+
+    <Button
+        android:id="@+id/buttonnotificar"
+        android:layout_below="@id/logo"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="@drawable/botonredondeado"
         android:text="Activar Notificaciones Diarias" />
 

@@ -24,8 +24,8 @@ public class Notificacion extends Activity {
             public void onClick(View v) {
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,03);
-                calendar.set(Calendar.MINUTE,24);
+                calendar.set(Calendar.HOUR_OF_DAY,04);
+                calendar.set(Calendar.MINUTE,14);
                 calendar.set(Calendar.SECOND,00);
 
                 Intent intent = new Intent(getApplicationContext(), Notification_reciever.class);
@@ -33,7 +33,7 @@ public class Notificacion extends Activity {
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
-                Toast.makeText(getApplicationContext(), "Agentarium: Notificacion programada a las 2:19 a.m ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Agentarium: Notificacion programada a las 4:14 a.m ", Toast.LENGTH_SHORT).show();
             }
         });
 
