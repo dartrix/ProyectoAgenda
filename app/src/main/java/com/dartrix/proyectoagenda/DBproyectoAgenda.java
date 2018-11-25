@@ -1,19 +1,23 @@
 package com.dartrix.proyectoagenda;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 public class DBproyectoAgenda extends SQLiteOpenHelper {
 
     public static String TAG = "tag";
 
     //Tabla Materia
-    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text, fechaMateria text, horaMateria text, descripcionMateria text, creditoMateria text, profMateria text )";
+    String consulta ="Create Table Materia (id integer primary key autoincrement, nombreMateria text,  descripcionMateria text, creditoMateria text, profMateria text )";
 
     //Tabla Asignacion
-    String consulaDos = "Create Table Asignacion (id integer primary key autoincrement, materiaFK text, nombre text, descripcion text, calificacion text, fechalimite text, horalimite text, tipo text, estados text)";
+    String consulaDos = "Create Table Asignacion (id integer primary key autoincrement, materiaFK integer, nombre text, descripcion text, calificacion text, fechalimite text, horalimite text, tipo text, estados text)";
 
     public DBproyectoAgenda(Context context,  String name,  SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -37,14 +41,56 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
 
     }
 
+    //Traer todos los datos de la clase Materia
+    public ArrayList<Materia> TraerDatosMateria() {
+        ArrayList<Materia> arreglosSelect = new ArrayList<>();
+        String selectQuery = "SELECT * FROM Materia";
+        Log.d(TAG, selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        Materia datos = new Materia();
+
+        while(c.moveToNext()){
+            datos = new Materia(Integer.toString(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getString(4));
+
+            arreglosSelect.add(datos);
+        }
+        c.close();
+        db.close();
+        return arreglosSelect;
+    }
+
+    //Traer todos los datos de la clase Asignacion
+    public ArrayList<Asignacion> TraerDatosAsignacion() {
+        ArrayList<Asignacion> arreglosSelect = new ArrayList<>();
+        String selectQuery = "SELECT * FROM Asignacion";
+        Log.d(TAG, selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        Asignacion datos = new Asignacion();
+
+        while(c.moveToNext()){
+            datos = new Asignacion(Integer.toString(c.getInt(0)), c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8));
+
+            arreglosSelect.add(datos);
+        }
+        c.close();
+        db.close();
+        return arreglosSelect;
+    }
+
+
+
     //INSERT de Materia
-    public  void insertarMateria(String nombreMateria,String fechaMateria,String horaMateria,String creditoMateria,String profMateria,String descripcionMateria){
+    public  void insertarMateria(String nombreMateria, String creditoMateria,String profMateria,String descripcionMateria){
 
         SQLiteDatabase db = getWritableDatabase();
 
         if (db != null){
 
-            String query = "insert into Materia (nombreMateria,fechaMateria,horaMateria,creditoMateria,profMateria,descripcionMateria) values ('"+nombreMateria+"','"+fechaMateria+"','"+horaMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"')";
+            String query = "insert into Materia (nombreMateria,creditoMateria,profMateria,descripcionMateria) values ('"+nombreMateria+"','"+creditoMateria+"','"+profMateria+"','"+descripcionMateria+"')";
             db.execSQL(query);
 
         } db.close();
@@ -64,11 +110,11 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     }
 
     //UPDATE de Materia
-    public  void editarMateria(String id, String nombreMateria,String fechaMateria,String horaMateria,String creditoMateria,String profMateria,String descripcionMateria){
+    public  void editarMateria(String id, String nombreMateria,String creditoMateria,String profMateria,String descripcionMateria){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
-            String query = "UPDATE Materia SET nombreMateria='"+nombreMateria+"', fechaMateria='"+fechaMateria+"', horaMateria='"+horaMateria+"',creditoMateria='"+creditoMateria+"',profMateria='"+profMateria+"' ,descripcionMateria='"+descripcionMateria+"' WHERE id='"+id+"' ";
+            String query = "UPDATE Materia SET nombreMateria='"+nombreMateria+"',creditoMateria='"+creditoMateria+"',profMateria='"+profMateria+"' ,descripcionMateria='"+descripcionMateria+"' WHERE id='"+id+"' ";
             db.execSQL(query);
 
         }db.close();
