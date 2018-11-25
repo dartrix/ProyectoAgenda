@@ -17,7 +17,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:layout_weight="1">
+                    android:layout_weight=".9">
                     <TextView
                         android:id="@+id/hora"
                         android:layout_width="match_parent"
@@ -26,12 +26,27 @@
                         android:textAlignment="center"
                         android:text="11:00pm 22/11/2018"/>
                 </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/circulo"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/redondo"
+                    android:scaleType="center"
+                    android:backgroundTint="#0f0"/>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:layout_weight=".6">
+                android:layout_weight=".7">
                 <TextView
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
@@ -48,7 +63,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:padding="5dp"
-                android:layout_weight="1">
+                android:layout_weight=".9">
                 <Button
                     android:id="@+id/detalles"
                     android:layout_width="match_parent"

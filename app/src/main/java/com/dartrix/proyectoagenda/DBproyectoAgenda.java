@@ -117,6 +117,22 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         return m;
     }
 
+    //Read
+    public Asignacion traerAsignacion(String id){
+        Asignacion m = new Asignacion();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("Select * from Asignacion where id = "+id+" Limit 1",null);
+
+        while(c.moveToNext()) {
+            m = new Asignacion(c.getString(0), c.getInt(1), c.getString(2), c.getString(3), c.getString(4), c.getString(5), c.getString(6), c.getString(7), c.getString(8));
+        }
+
+        c.close();
+        db.close();
+
+        return m;
+    }
+
 
 
     //INSERT de Materia

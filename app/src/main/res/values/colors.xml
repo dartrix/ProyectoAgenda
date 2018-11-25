@@ -13,6 +13,11 @@
     <color name="colorSuccess">#23d160</color>
     <color name="colorWarning">#FFDD57</color>
 
+    <color name="colorTarea">#118ab2</color>
+    <color name="colorExposicion">#ffd166</color>
+    <color name="colorProyecto">#06d6a0</color>
+    <color name="colorExamen">#ef476f</color>
+
     <color name="libro1">#1e90ff</color>
     <color name="libro2">#cc0000</color>
     <color name="libro3">#663399</color>

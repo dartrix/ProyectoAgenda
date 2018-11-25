@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -86,6 +88,24 @@ public class MostrarMateriaActivity extends Activity {
         View v = vi.inflate(R.layout.asig_item_layout, null);
         TextView horafecha = (TextView)v.findViewById(R.id.hora);
         TextView titulo = (TextView)v.findViewById(R.id.titulo);
+
+        ImageButton circulo = (ImageButton)v.findViewById(R.id.circulo);
+
+        switch (s.getTipo()){
+            case "Tarea":
+                circulo.setBackgroundTintList(getResources().getColorStateList(R.color.colorTarea));
+                break;
+            case "Exposicion":
+                circulo.setBackgroundTintList(getResources().getColorStateList(R.color.colorExposicion));
+                break;
+            case "Proyecto":
+                circulo.setBackgroundTintList(getResources().getColorStateList(R.color.colorProyecto));
+                break;
+            case "Examen":
+                circulo.setBackgroundTintList(getResources().getColorStateList(R.color.colorExamen));
+                break;
+
+        }
 
         titulo.setText(s.getNombre());
         horafecha.setText(s.getFechalimite());
