@@ -10,36 +10,101 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <GridLayout
-            android:id="@+id/gridlayout"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="3">
+            android:orientation="vertical">
 
             <FrameLayout
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_height="100dp"
-                android:padding="5dp"
-                android:onClick="agregarMateria">
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/backgroundgradient4">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_add_black_24dp"/>
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:textAlignment="center"
-                    android:text="Agregar"/>
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:padding="15dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Superate."
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="35dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cree en ti mismo y en lo que eres"
+                        android:textColor="#fff"
+                        android:textSize="15dp"/>
+                </LinearLayout>
             </FrameLayout>
 
+            <FrameLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/backgroundgradient5"
+                android:onClick="mostarAsignaciones">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Ver todas las asignaciones"
+                            android:textColor="#fff"
+                            android:textSize="20dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:background="@drawable/ic_arrow"
+                            android:scaleType="fitCenter"
+                            android:backgroundTint="#fff"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"/>
+                    </RelativeLayout>
+            </FrameLayout>
+
+            <GridLayout
+                android:id="@+id/gridlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3">
+
+                <FrameLayout
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_height="100dp"
+                    android:padding="5dp"
+                    android:onClick="agregarMateria">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_add_black_24dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:text="Agregar"/>
+                </FrameLayout>
 
 
-        </GridLayout>
+
+            </GridLayout>
+        </LinearLayout>
+
     </ScrollView>
 
 

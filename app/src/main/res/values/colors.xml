@@ -8,6 +8,11 @@
     <color name="colorSecundary">#b2dbbf</color>
     <color name="colorLight">#fdfff9</color>
 
+    <color name="colorInfo">#209cee</color>
+    <color name="colorDanger">#ff3860</color>
+    <color name="colorSuccess">#23d160</color>
+    <color name="colorWarning">#FFDD57</color>
+
     <color name="libro1">#1e90ff</color>
     <color name="libro2">#cc0000</color>
     <color name="libro3">#663399</color>

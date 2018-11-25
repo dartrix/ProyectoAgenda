@@ -11,12 +11,16 @@ public class MenuActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
     }
 
     public void agregarMateria(View v){
         Intent i = new Intent(this, AgregarMateriaActivity.class);
-        //eto eh pa proba lo de asignacione mientra no tenemos boton para que aparezca :v
-        //Intent i = new Intent(this, asignacionesActivity.class);
+        startActivity(i);
+    }
+
+    public void mostarAsignaciones(View v){
+        Intent i = new Intent(this, asignacionesActivity.class);
         startActivity(i);
     }
 
