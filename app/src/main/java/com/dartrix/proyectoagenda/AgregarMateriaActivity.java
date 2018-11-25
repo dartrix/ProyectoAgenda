@@ -43,22 +43,26 @@ public class AgregarMateriaActivity extends Activity {
         Random r = new Random();
         int color = r.nextInt(max - min + 1) + min;
 
-        if (!nombre.getText().toString().equals("") || !credito.getText().toString().equals("") || !prof.getText().toString().equals("") || !desc.getText().toString().equals("") ){
+
+        if (!nombre.getText().toString().equals("") && !credito.getText().toString().equals("") && !prof.getText().toString().equals("") && !desc.getText().toString().equals("") ){
             DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
 
-            sql.insertarMateria(nombre.getText().toString() ,credito.getText().toString() ,prof.getText().toString() ,desc.getText().toString(), color, "0");
+            if (Integer.parseInt(credito.getText().toString())  <=24 && Integer.parseInt(credito.getText().toString()) > 0){
+                sql.insertarMateria(nombre.getText().toString() ,credito.getText().toString() ,prof.getText().toString() ,desc.getText().toString(), color, "0");
 
-            nombre.setText("");
-            credito.setText("");
-            prof.setText("");
-            desc.setText("");
+                nombre.setText("");
+                credito.setText("");
+                prof.setText("");
+                desc.setText("");
+
+            }else{
+                Toast.makeText(this,"Error: el limite de Creditos es 24", Toast.LENGTH_LONG).show();
+            }
 
             Toast.makeText(this,"Materia Registrada", Toast.LENGTH_LONG).show();
-        } else{
-            Toast.makeText(this,"Se deben llenar los datos", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this,"Error: Se deben llenar los datos", Toast.LENGTH_LONG).show();
         }
-
-
 
     }
 
