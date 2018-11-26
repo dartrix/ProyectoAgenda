@@ -225,15 +225,20 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         }db.close();
     }
 
-    //UPDATE de Asignacion
-    public  void editarAsignacion(String id , String nombre, String tipo, String fechalimite, String horalimite, String calificacion, String descripcion, String estados){
+    public void actualizarAcumuladoMateria(String id, String acumulado){
+
+        Materia m = traerMateria(id);
+
+        int i = Integer.parseInt(m.getAcumulado()) + Integer.parseInt(acumulado);
+
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
-            String query = "UPDATE Asignacion SET nombre='"+nombre+"', tipo='"+tipo+"', fechalimite='"+fechalimite+"',horalimite='"+horalimite+"',calificacion='"+calificacion+"',descripcion='"+descripcion+"', estados='"+estados+"' WHERE id='"+id+"'";
+            String query = "UPDATE Materia SET acumulado = '"+i+"' WHERE id="+id+" ";
             db.execSQL(query);
 
         }db.close();
+
     }
 
     public  void editarAsignacion(Asignacion as){

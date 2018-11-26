@@ -55,9 +55,16 @@ public class MostrarAsignacionActivity extends Activity {
                 calificar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
+
                         sql.editarAsignacionCalificacion(s, cal.getText().toString());
+                        Asignacion f = sql.traerAsignacion(s);
+                        Materia g = sql.traerMateria(Integer.toString(f.getMateriaFK()));
+
+                        sql.actualizarAcumuladoMateria(g.getId(), cal.getText().toString());
                         llenarDatos(sql.traerAsignacion(s));
+
                         dialog.dismiss();
                         Toast.makeText(getApplicationContext(),"Asignacion calificada",Toast.LENGTH_SHORT).show();
                     }
