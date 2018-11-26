@@ -214,11 +214,11 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     }
 
     //UPDATE de Materia
-    public  void editarMateria(String id, String nombreMateria,String creditoMateria,String profMateria,String descripcionMateria, String acumulado){
+    public  void editarMateria(Materia m){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
-            String query = "UPDATE Materia SET nombreMateria='"+nombreMateria+"',creditoMateria='"+creditoMateria+"',profMateria='"+profMateria+"' ,descripcionMateria='"+descripcionMateria+"',acumulado='"+acumulado+"' WHERE id='"+id+"' ";
+            String query = "UPDATE Materia SET nombreMateria='"+m.getNombreMateria()+"',creditoMateria='"+m.getCreditoMateria()+"',profMateria='"+m.getProfMateria()+"' ,descripcionMateria='"+m.getDescripcionMateria()+"',acumulado='"+m.getAcumulado()+"' WHERE id='"+m.getId()+"' ";
             db.execSQL(query);
 
         }db.close();
@@ -250,8 +250,19 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         if (db != null){
-
             String query = "DELETE FROM Materia WHERE id='"+id+"'";
+            db.execSQL(query);
+
+        }
+        db.close();
+    }
+
+    public void eliminarAsignacionesMateria(String materiafk){
+        SQLiteDatabase db = getWritableDatabase();
+
+        if (db != null){
+
+            String query = "DELETE FROM Asignacion WHERE materiaFK = "+materiafk+"";
             db.execSQL(query);
 
         }db.close();

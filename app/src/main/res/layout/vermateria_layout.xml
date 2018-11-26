@@ -13,21 +13,54 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/layoutredondeado">
 
-        <ImageView
-            android:onClick="agregarAsig"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="9dp"
-            android:src="@drawable/ic_add"
-            android:tint="#000000"
-            android:layout_gravity="end"/>
 
-        <TextView
-            android:id="@+id/prof"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Prof: Wilton Oltmanns "/>
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:onClick="editarMateria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_edit"
+                    android:tint="@color/colorInfo"/>
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:onClick="eliminarMateria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_delete"
+                    android:tint="@color/colorDanger"/>
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:onClick="agregarAsig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/colorSuccess"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_below="@+id/nav"
+                android:id="@+id/prof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Prof: Wilton Oltmanns "/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

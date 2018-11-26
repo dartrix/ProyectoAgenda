@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundgradient1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:padding="10dp"
+            android:id="@+id/frame"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/backgroundgradient1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editar Materia"
+                    android:textColor="#fff"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/lnn"
+            android:layout_below="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:textColor="@color/colorLight"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre de materia"/>
+                        <TextView
+                            android:textColor="@color/colorLight"
+                            android:layout_width="match_parent"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Creditos"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/nombre"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorLight"
+                            android:backgroundTint="#dadada"/>
+                        <EditText
+                            android:id="@+id/credito"
+                            android:layout_width="match_parent"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorLight"
+                            android:inputType="number"
+                            android:backgroundTint="#dadada"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:id="@+id/prftxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLight"
+                    android:text="Profesor"/>
+
+                <EditText
+                    android:id="@+id/prof"
+                    android:textColor="@color/colorLight"
+                    android:layout_below="@+id/prftxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#dadada"/>
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLight"
+                    android:text="Descripción"/>
+                <EditText
+                    android:id="@+id/descripcion"
+                    android:layout_below="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLight"
+                    android:lines="4"
+                    android:backgroundTint="#dadada"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/buttonPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/botonredondeado"
+                    android:text="Actualizar"
+                    android:onClick="actualizarMateria"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

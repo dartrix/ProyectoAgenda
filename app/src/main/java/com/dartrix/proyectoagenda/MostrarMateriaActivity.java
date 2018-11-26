@@ -1,7 +1,9 @@
 package com.dartrix.proyectoagenda;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
@@ -16,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -26,6 +29,8 @@ public class MostrarMateriaActivity extends Activity {
     String idinfo;
     TextView prof, nombre, cred, acumulado, txt, nota;
     ImageView libro;
+    Activity currentActivity = this;
+    DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class MostrarMateriaActivity extends Activity {
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
 
-        DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
+
 
 
         if(b!=null)
@@ -191,6 +196,51 @@ public class MostrarMateriaActivity extends Activity {
         if (ac > 80){
             acumulado.setTextColor(Color.rgb(0,255,0));
         }
+
+    }
+
+    public void editarMateria(View v){
+        Intent i = new Intent(this,EditarMateriaActivity.class);
+        i.putExtra("id",idinfo);
+        startActivity(i);
+    }
+
+    public void eliminarMateria(View v){
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setTitle("Agendarium");
+        builder1.setMessage("Desea borrar esta materia? (Se borraran todas las asignaciones)");
+        builder1.setCancelable(true);
+
+        boolean borrado = false;
+
+        builder1.setPositiveButton(
+                "Si",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        sql.eliminarAsignacionesMateria(idinfo);
+                        sql.eliminarMateria(idinfo);
+
+                        currentActivity.finish();
+                        Toast.makeText(currentActivity,"Materia borrada.",Toast.LENGTH_LONG).show();
+                        dialog.cancel();
+
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+
 
     }
 }
