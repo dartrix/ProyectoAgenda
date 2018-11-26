@@ -31,6 +31,7 @@
             </activity>
         <activity android:name=".Notificacion"/>
         <activity android:name=".Repeating_activity"/>
+        <activity android:name=".EditarAsignaturaActivity"/>
         <receiver android:name=".Notification_reciever"/>
     </application>
 

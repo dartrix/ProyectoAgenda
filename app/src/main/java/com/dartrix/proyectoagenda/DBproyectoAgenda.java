@@ -132,6 +132,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         db.close();
         return arreglosSelect;
     }
+
     //Traer todos los datos de la clase Asignacion
     public ArrayList<Asignacion> TraerDatosAsignacionMateria(String id) {
         ArrayList<Asignacion> arreglosSelect = new ArrayList<>();
@@ -274,7 +275,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
 
         if (db != null){
 
-            String query = "DELETE FROM Asignacion WHERE id='"+id+"'";
+            String query = "DELETE FROM Asignacion WHERE id="+id;
             db.execSQL(query);
 
         }db.close();

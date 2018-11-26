@@ -1,8 +1,10 @@
 package com.dartrix.proyectoagenda;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -20,7 +22,10 @@ import org.w3c.dom.Text;
 public class MostrarAsignacionActivity extends Activity {
 
     final Context cnt = this;
-    String id;
+    String s;
+    Activity currentActivity = this;
+    DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +35,11 @@ public class MostrarAsignacionActivity extends Activity {
         Bundle b = i.getExtras();
 
         if (b!=null){
-            id = (String) b.get("id");
+            s = (String) b.get("id");
         }
         final DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
 
-        llenarDatos(sql.traerAsignacion(id));
+        llenarDatos(sql.traerAsignacion(s));
 
         Button button = (Button) findViewById(R.id.calificar);
         // add button listener
@@ -51,8 +56,8 @@ public class MostrarAsignacionActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
-                        sql.editarAsignacionCalificacion(id, cal.getText().toString());
-                        llenarDatos(sql.traerAsignacion(id));
+                        sql.editarAsignacionCalificacion(s, cal.getText().toString());
+                        llenarDatos(sql.traerAsignacion(s));
                         dialog.dismiss();
                         Toast.makeText(getApplicationContext(),"Asignacion calificada",Toast.LENGTH_SHORT).show();
                     }
@@ -116,6 +121,43 @@ public class MostrarAsignacionActivity extends Activity {
         }
 
         desc.setText(as.getDescripcion());
+    }
+    public void eliminarAsign(View v){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setTitle("Agendarium");
+        builder1.setMessage("Desea borrar esta materia? (Se borraran todas las asignaciones)");
+        builder1.setCancelable(true);
+
+
+        builder1.setPositiveButton(
+                "Si",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        sql.eliminarAsignacion(s);
+                        currentActivity.finish();
+                        Toast.makeText(currentActivity,"Asignacion borrada.",Toast.LENGTH_LONG).show();
+
+                        dialog.cancel();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
+    public void abrir (View v){
+
+        Intent i = new Intent(this, EditarAsignaturaActivity.class);
+        i.putExtra("id",s);
+        startActivity(i);
     }
 
 }

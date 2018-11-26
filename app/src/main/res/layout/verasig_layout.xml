@@ -190,13 +190,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="abrir"
                         android:backgroundTint="@color/colorInfo"
                         android:text="Editar"
                         android:textColor="#fff"/>
+
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="eliminarAsign"
                         android:backgroundTint="@color/colorDanger"
                         android:textColor="#fff"
                         android:text="Eliminar"

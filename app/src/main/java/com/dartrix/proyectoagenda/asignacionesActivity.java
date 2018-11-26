@@ -1,6 +1,9 @@
 package com.dartrix.proyectoagenda;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,12 +23,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class asignacionesActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
 
+    String id;
+    Activity currentActivity = this;
     DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
 
     @Override
@@ -62,16 +68,12 @@ public class asignacionesActivity extends AppCompatActivity {
                         // close drawer when item is tapped
                         mDrawerLayout.closeDrawers();
 
-
-
                         // Add code here to update the UI based on the item selected
                         // For example, swap UI fragments here
 
                         return true;
                     }
                 });
-
-
 
     }
 
@@ -223,7 +225,12 @@ public class asignacionesActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
 
+    public void editarAsignacion(View v){
+        Intent i = new Intent(this, EditarAsignaturaActivity.class);
+        i.putExtra("id",id);
+        startActivity(i);
     }
 
 
