@@ -172,6 +172,7 @@
                 android:paddingRight="20dp"
                 android:paddingTop="20dp">
                 <Button
+                    android:id="@+id/calificar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

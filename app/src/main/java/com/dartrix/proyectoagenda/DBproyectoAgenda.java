@@ -99,7 +99,7 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
 
         while(c.moveToNext()){
             datos = new Asignacion(Integer.toString(c.getInt(0)), c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8));
-
+            Log.d("query", datos.getEstados());
             arreglosSelect.add(datos);
         }
         c.close();
@@ -225,11 +225,21 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
     }
 
     //UPDATE de Asignacion
-    public  void editar(String id , String nombre, String tipo, String fechalimite, String horalimite, String calificacion, String descripcion, String estados){
+    public  void editarAsignacion(String id , String nombre, String tipo, String fechalimite, String horalimite, String calificacion, String descripcion, String estados){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
             String query = "UPDATE Asignacion SET nombre='"+nombre+"', tipo='"+tipo+"', fechalimite='"+fechalimite+"',horalimite='"+horalimite+"',calificacion='"+calificacion+"',descripcion='"+descripcion+"', estados='"+estados+"' WHERE id='"+id+"'";
+            db.execSQL(query);
+
+        }db.close();
+    }
+
+    public  void editarAsignacionCalificacion(String id,String calificado){
+        SQLiteDatabase db = getWritableDatabase();
+        if (db != null){
+
+            String query = "UPDATE Asignacion SET calificacion = '"+calificado+"', estados = 'completo' where id = "+id;
             db.execSQL(query);
 
         }db.close();

@@ -1,18 +1,25 @@
 package com.dartrix.proyectoagenda;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 public class MostrarAsignacionActivity extends Activity {
 
+    final Context cnt = this;
     String id;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,9 +32,41 @@ public class MostrarAsignacionActivity extends Activity {
         if (b!=null){
             id = (String) b.get("id");
         }
-        DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
+        final DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
 
         llenarDatos(sql.traerAsignacion(id));
+
+        Button button = (Button) findViewById(R.id.calificar);
+        // add button listener
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                // custom dialog
+                final Dialog dialog = new Dialog(cnt);
+                dialog.setContentView(R.layout.custom_calificar_dialog);
+                Button calificar = (Button) dialog.findViewById(R.id.calificar);
+                Button cancelar = (Button) dialog.findViewById(R.id.cancelar);
+                // if button is clicked, close the custom dialog
+                calificar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
+                        sql.editarAsignacionCalificacion(id, cal.getText().toString());
+                        llenarDatos(sql.traerAsignacion(id));
+                        dialog.dismiss();
+                        Toast.makeText(getApplicationContext(),"Asignacion calificada",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                cancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        Toast.makeText(getApplicationContext(),"Cancelado",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     public void llenarDatos(Asignacion as){

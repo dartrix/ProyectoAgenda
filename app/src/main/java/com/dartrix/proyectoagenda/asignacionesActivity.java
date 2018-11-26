@@ -127,7 +127,7 @@ public class asignacionesActivity extends AppCompatActivity {
         switch (id){
             case R.id.nav_todo:
                 s.setText("Todo");
-                mostrarTipoAsig(sql.TraerDatosAsignacion());
+                mostrarTipoAsig(sql.TraerDatosAsignacion(false));
                 break;
 
             case R.id.nav_tarea:
