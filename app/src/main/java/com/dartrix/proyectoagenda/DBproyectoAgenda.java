@@ -236,6 +236,16 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         }db.close();
     }
 
+    public  void editarAsignacion(Asignacion as){
+        SQLiteDatabase db = getWritableDatabase();
+        if (db != null){
+
+            String query = "UPDATE Asignacion SET nombre='"+as.getNombre()+"', tipo='"+as.getTipo()+"', fechalimite='"+as.getFechalimite()+"',horalimite='"+as.getHoralimite()+"',calificacion='"+as.getCalificacion()+"',descripcion='"+as.getDescripcion()+"', estados='"+as.getEstados()+"' WHERE id='"+as.getId()+"'";
+            db.execSQL(query);
+
+        }db.close();
+    }
+
     public  void editarAsignacionCalificacion(String id,String calificado){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){

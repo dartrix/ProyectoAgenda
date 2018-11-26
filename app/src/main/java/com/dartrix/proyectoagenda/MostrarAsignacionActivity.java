@@ -74,6 +74,54 @@ public class MostrarAsignacionActivity extends Activity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setContentView(R.layout.verasig_layout);
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+
+        if (b!=null){
+            s = (String) b.get("id");
+        }
+        final DBproyectoAgenda sql = new DBproyectoAgenda(this, "Agendarium", null, 1);
+
+        llenarDatos(sql.traerAsignacion(s));
+
+        Button button = (Button) findViewById(R.id.calificar);
+        // add button listener
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                // custom dialog
+                final Dialog dialog = new Dialog(cnt);
+                dialog.setContentView(R.layout.custom_calificar_dialog);
+                Button calificar = (Button) dialog.findViewById(R.id.calificar);
+                Button cancelar = (Button) dialog.findViewById(R.id.cancelar);
+                // if button is clicked, close the custom dialog
+                calificar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
+                        sql.editarAsignacionCalificacion(s, cal.getText().toString());
+                        llenarDatos(sql.traerAsignacion(s));
+                        dialog.dismiss();
+                        Toast.makeText(getApplicationContext(),"Asignacion calificada",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                cancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        Toast.makeText(getApplicationContext(),"Cancelado",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
+            }
+        });
+    }
+
     public void llenarDatos(Asignacion as){
 
         TextView titulo = (TextView)findViewById(R.id.titulo);

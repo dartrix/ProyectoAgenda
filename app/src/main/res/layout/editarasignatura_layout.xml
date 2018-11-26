@@ -128,7 +128,7 @@
                 android:text="Editar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="editarAsignacion"/>
+                android:onClick="actualizarAsig"/>
         </RelativeLayout>
 
 
