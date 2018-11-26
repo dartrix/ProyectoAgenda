@@ -189,12 +189,23 @@ public class MostrarMateriaActivity extends Activity {
 
         if (ac < 70){
             acumulado.setTextColor(Color.rgb(255,0,0));
+            nota.setTextColor(Color.rgb(255,0,0));
+            nota.setText("F");
         }
-        if (ac >70 && ac < 80){
+        if (ac >=  70 && ac <80){
+            acumulado.setTextColor(Color.rgb(255,82,0));
+            nota.setTextColor(Color.rgb(255,82,0));
+            nota.setText("C");
+        }
+        if (ac >= 80 && ac < 90){
             acumulado.setTextColor(Color.rgb(255, 165, 0));
+            nota.setTextColor(Color.rgb(255, 165, 0));
+            nota.setText("B");
         }
-        if (ac > 80){
+        if (ac >=  90){
             acumulado.setTextColor(Color.rgb(0,255,0));
+            nota.setTextColor(Color.rgb(0,255,0));
+            nota.setText("A");
         }
 
     }

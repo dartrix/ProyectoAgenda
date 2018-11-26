@@ -24,8 +24,8 @@ public class Notificacion extends Activity {
             public void onClick(View v) {
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,14);
-                calendar.set(Calendar.MINUTE,54);
+                calendar.set(Calendar.HOUR_OF_DAY,02);
+                calendar.set(Calendar.MINUTE,36);
                 calendar.set(Calendar.SECOND,00);
 
                 Intent intent = new Intent(getApplicationContext(), Notification_reciever.class);

@@ -24,7 +24,7 @@ public class Notification_reciever extends BroadcastReceiver {
         repeating_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //objeto ramdom para activar el array
 
-        int random = (int) Math.round(Math.random()* 3 ) ;
+        int random = (int) Math.round(Math.random()* 3 );
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100, repeating_intent,PendingIntent.FLAG_UPDATE_CURRENT);
 

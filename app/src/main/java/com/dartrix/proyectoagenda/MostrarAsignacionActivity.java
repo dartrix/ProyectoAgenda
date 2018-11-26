@@ -59,10 +59,9 @@ public class MostrarAsignacionActivity extends Activity {
                         TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
 
                         sql.editarAsignacionCalificacion(s, cal.getText().toString());
-                        Asignacion f = sql.traerAsignacion(s);
-                        Materia g = sql.traerMateria(Integer.toString(f.getMateriaFK()));
 
-                        sql.actualizarAcumuladoMateria(g.getId(), cal.getText().toString());
+                        sql.actualizarAcumuladoMateria(Integer.toString(sql.traerAsignacion(s).getMateriaFK()));
+
                         llenarDatos(sql.traerAsignacion(s));
 
                         dialog.dismiss();
@@ -113,6 +112,7 @@ public class MostrarAsignacionActivity extends Activity {
                         TextView cal = (TextView)dialog.findViewById(R.id.calificacion);
                         sql.editarAsignacionCalificacion(s, cal.getText().toString());
                         llenarDatos(sql.traerAsignacion(s));
+                        sql.actualizarAcumuladoMateria(Integer.toString(sql.traerAsignacion(s).getMateriaFK()));
                         dialog.dismiss();
                         Toast.makeText(getApplicationContext(),"Asignacion calificada",Toast.LENGTH_SHORT).show();
                     }

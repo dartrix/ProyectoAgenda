@@ -225,19 +225,27 @@ public class DBproyectoAgenda extends SQLiteOpenHelper {
         }db.close();
     }
 
-    public void actualizarAcumuladoMateria(String id, String acumulado){
+    public void actualizarAcumuladoMateria(String id){
 
-        Materia m = traerMateria(id);
+        int acumulado=0;
 
-        int i = Integer.parseInt(m.getAcumulado()) + Integer.parseInt(acumulado);
+        ArrayList<Asignacion> to = TraerDatosAsignacionMateria(id);
+
+        for (int i = 0; i < to.size(); i++){
+            acumulado += Integer.parseInt(to.get(i).getCalificacion());
+        }
+
+        Log.d("TAG",Integer.toString(acumulado));
 
         SQLiteDatabase db = getWritableDatabase();
         if (db != null){
 
-            String query = "UPDATE Materia SET acumulado = '"+i+"' WHERE id="+id+" ";
+            String query = "UPDATE Materia SET acumulado = '"+acumulado+"' WHERE id='"+id+"' ";
             db.execSQL(query);
 
         }db.close();
+
+
 
     }
 
